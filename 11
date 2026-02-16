@@ -12,11 +12,11 @@ def site(message):
 
 @bot.message_handler(commands=["start"])
 def main(message):
-	bot.send_message(message.chat.id, "This bot is not very useful :), write /profile")
+	bot.send_message(message.chat.id, "home page")
 
 @bot.message_handler()
 def info(message):
-	bot.send_message(message.chat.id, f"hi {message.from_user.first_name}, write /start :) ")
+	bot.send_message(message.chat.id, f"hi {message.from_user.first_name}, this bot was created for practice, I'm glad you looked at it :) ")
 		
  
 bot.polling(none_stop=True)
