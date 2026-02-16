@@ -1,6 +1,8 @@
 import os
 import webbrowser
 import telebot
+from telebot import types
+
 
 TOKEN = os.getenv("BOT_TOKEN")
 
@@ -8,8 +10,10 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=["profile"])
 def site(message):
-	webbrowser.open("https://github.com/TikhonPaliuh")
-
+	markup = types.InlineKeyboardMarkup()
+	markup.add(types.InlineKeyboardButton("Author's website", url="https://github.com/TikhonPaliuh"))
+	bot.reply_to(message,"Author's website", reply_markup=markup)
+ 
 @bot.message_handler(commands=["start"])
 def main(message):
 	bot.send_message(message.chat.id, "This bot is not very useful :), write /profile")
